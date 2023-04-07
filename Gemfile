@@ -16,6 +16,9 @@ group :development, :test do
   gem "dotenv-rails"
   gem "rack-cors"
   gem "pg", "~> 1.1"
-
+  gem "byebug"
+  gem "rspec-rails"
+  gem "factory_bot"
+  gem "faker"
 end
 
