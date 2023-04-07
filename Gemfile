@@ -5,7 +5,7 @@ ruby "3.2.0"
 
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "puma", "~> 5.0"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 
 group :development, :test do
@@ -20,5 +20,5 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot"
   gem "faker"
+  gem "standard"
 end
-
