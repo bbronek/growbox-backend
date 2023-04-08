@@ -1,26 +1,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  port: 5432
+  username: test
+  password: test
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: growbox_backend_development
-  host: localhost
-  port: 5432
-  username: test
-  password: <%= ENV["DB_LOCAL_PASSWORD"] %>
 
 test:
   <<: *default
   database: growbox_backend_test
-  host: localhost
-  port: 5432
-  username: test
-  password: <%= ENV["DB_LOCAL_PASSWORD"] %>
 
 production:
   <<: *default
   database: growbox_backend_production
-  username: growbox_backend
-  password: <%= ENV["GROWBOX_BACKEND_DATABASE_PASSWORD"] %>
