@@ -67,6 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    bcrypt (3.1.18)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -93,6 +94,7 @@ GEM
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     json (2.6.3)
+    jwt (2.7.0)
     language_server-protocol (3.17.0.3)
     loofah (2.20.0)
       crass (~> 1.0.2)
@@ -223,11 +225,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt
   bootsnap
   byebug
   dotenv-rails
   factory_bot_rails
   faker
+  jwt
   pg (~> 1.1)
   pry
   pry-nav
