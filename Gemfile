@@ -18,7 +18,7 @@ group :development, :test do
   gem "pg", "~> 1.1"
   gem "byebug"
   gem "rspec-rails"
-  gem "factory_bot"
+  gem "factory_bot_rails"
   gem "faker"
   gem "standard"
 end
