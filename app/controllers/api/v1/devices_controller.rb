@@ -12,6 +12,7 @@ module Api
       end
 
       private
+
       # Change with jwt when frontend will be ready
       def current_user
         @current_user ||= User.find_by(id: params[:user_id])

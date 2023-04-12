@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       resources :devices, only: [:index, :show], path: "users/:user_id/devices" do
         resources :device_logs, only: [:index, :show], shallow: true
       end
+
+      namespace :python_microservice do
+        resources :data, only: [:index]
+      end
     end
   end
 end

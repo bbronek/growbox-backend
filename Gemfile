@@ -23,4 +23,5 @@ group :development, :test do
   gem "standard"
   gem "bcrypt"
   gem "jwt"
+  gem "httparty"
 end
