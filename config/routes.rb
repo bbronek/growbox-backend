@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
       post "login", to: "authentication#login"
       delete "logout", to: "authentication#logout"
+
+      resources :devices, only: [:index, :show], path: 'users/:user_id/devices' do
+        resources :device_logs, only: [:index, :show], shallow: true
+      end
     end
   end
 end
