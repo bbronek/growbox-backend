@@ -17,9 +17,9 @@ module Api
 
         if user.save
           jwt_token = user.generate_jwt
-          render json: { token: jwt_token }
+          render json: {token: jwt_token}
         else
-          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+          render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
       end
 
@@ -30,7 +30,7 @@ module Api
         if jwt_token && verify_jwt(jwt_token)
           @current_user = User.find(verify_jwt(jwt_token)["user_id"])
         else
-          render json: { error: "Unauthorized" }, status: :unauthorized
+          render json: {error: "Unauthorized"}, status: :unauthorized
         end
       end
 
