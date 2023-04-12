@@ -8,4 +8,8 @@ class User < ApplicationRecord
   def generate_jwt
     JWT.encode({user_id: id, exp: Time.now.to_i + 1800}, Rails.application.secrets.secret_key_base)
   end
+
+  def invalidate_token
+    update_column(:token_version, token_version + 1)
+  end
 end

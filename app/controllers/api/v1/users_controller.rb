@@ -1,7 +1,8 @@
 module Api
   module V1
     class UsersController < BaseController
-      before_action :authenticate_user!, only: [:index, :show]
+      # uncomment after frontend will be ready
+      # before_action :authenticate_user!, only: [:index, :show]
 
       def index
         render json: User.all
