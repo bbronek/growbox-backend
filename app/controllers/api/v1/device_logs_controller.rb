@@ -1,6 +1,7 @@
 module Api
   module V1
     class DeviceLogsController < BaseController
+      before_action :authenticate_user!
       before_action :set_device, only: [:index, :show]
 
       def index

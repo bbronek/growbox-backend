@@ -1,21 +1,15 @@
 module Api
   module V1
     class DevicesController < BaseController
+      before_action :authenticate_user!, only: [:index, :show]
       def index
-        devices = current_user.devices
+        devices = @current_user.devices
         render json: devices
       end
 
       def show
-        device = current_user.devices.find(params[:id])
+        device = @current_user.devices.find(params[:id])
         render json: device
-      end
-
-      private
-
-      # Change with jwt when frontend will be ready
-      def current_user
-        @current_user ||= User.find_by(id: params[:user_id])
       end
     end
   end
