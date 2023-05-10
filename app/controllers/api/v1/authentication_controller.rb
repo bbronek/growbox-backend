@@ -1,9 +1,10 @@
 module Api
   module V1
     class AuthenticationController < BaseController
+      before_action :authenticate_user!, only: [:logout]
       def login
-        user = User.find_by(email: params[:email])
-        if user&.authenticate(params[:password])
+        user = User.find_by(email: user_params[:email])
+        if user&.authenticate(user_params[:password])
           jwt_token = user.generate_jwt
           render json: {token: jwt_token}
         else
@@ -12,18 +13,14 @@ module Api
       end
 
       def logout
-        current_user.invalidate_token
+        @current_user.invalidate_token
         head :ok
       end
 
       private
 
-      def current_user
-        @current_user ||= User.find_by(id: payload["user_id"])
-      end
-
-      def payload
-        @payload ||= JWT.decode(request.headers["Authorization"].split(" ")[1], Rails.application.secret_key_base, true)[0]
+      def user_params
+        params.permit(:email, :password)
       end
     end
   end
