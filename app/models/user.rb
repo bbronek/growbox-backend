@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :devices
+  has_many :plants
+  has_many :favorite_plants, dependent: :destroy
+  has_many :favorite_plants_list, through: :favorite_plants, source: :plant
 
   validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
   validates :password, presence: true, length: {minimum: 8}, format: {with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}\z/, message: "must be at least 8 characters and include at least one letter and one number"}

@@ -24,4 +24,5 @@ group :development, :test do
   gem "bcrypt"
   gem "jwt"
   gem "httparty"
+  gem "active_model_serializers"
 end

@@ -9,15 +9,13 @@ puts "populate users..."
   User.create!(
     email: email,
     password: password,
-    password_confirmation: password,
-    login: Faker::Internet.username
+    password_confirmation: password
   )
 
   print "."
 end
 
 puts ""
-
 puts "populate devices..."
 
 users = User.all
@@ -30,7 +28,6 @@ devices = []
 end
 
 puts ""
-
 puts "populate device logs..."
 
 devices.each do |device|
@@ -46,3 +43,47 @@ devices.each do |device|
     print "."
   end
 end
+
+puts ""
+puts "populate plants..."
+
+plants = []
+devices.each do |d|
+  3.times do
+    plant = Plant.create!(
+      name: Faker::Name.unique.name,
+      user: d.user,
+      device: d,
+      light_min: rand(100..500),
+      light_max: rand(500..1000),
+      temp_min: rand(10..20),
+      temp_max: rand(20..30),
+      humidity_min: rand(30..60),
+      humidity_max: rand(60..90),
+      fertilizing: Faker::Lorem.sentence,
+      repotting: Faker::Lorem.sentence,
+      pruning: Faker::Lorem.sentence,
+      common_diseases: Faker::Lorem.sentence,
+      appearance: Faker::Lorem.sentence,
+      blooming_time: Faker::Lorem.sentence,
+      public: [true, false].sample,
+      description: Faker::Lorem.paragraph
+    )
+    plants << plant
+
+    print "."
+  end
+end
+
+puts ""
+puts "populate favorite plants..."
+
+users.each do |user|
+  random_plants = plants.sample(rand(1..5))
+  random_plants.each do |plant|
+    FavoritePlant.create(user: user, plant: plant)
+    print "."
+  end
+end
+
+puts ""
