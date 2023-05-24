@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_10_014542) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_001341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,8 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_014542) do
     t.float "light_max"
     t.float "temp_min"
     t.float "temp_max"
-    t.float "humidity_min"
-    t.float "humidity_max"
+    t.float "air_humidity_min"
+    t.float "air_humidity_max"
     t.text "fertilizing"
     t.text "repotting"
     t.text "pruning"
@@ -91,6 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_014542) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.float "soil_humidity_min"
+    t.float "soil_humidity_max"
     t.index ["device_id"], name: "index_plants_on_device_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
   end
