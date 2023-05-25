@@ -16,13 +16,21 @@ puts "populate users..."
 end
 
 puts ""
-puts "populate devices..."
+puts "populate devices not assigned to users ..."
+
+10.times do |i|
+  Device.create(name: "Device #{i + 1}")
+  print "."
+end
+
+puts ""
+puts "populate devices assigned to user ..."
 
 users = User.all
-devices = []
+assigned_devices = []
 10.times do |i|
   device = Device.create(name: "Device #{i + 1}", user: users.sample)
-  devices << device
+  assigned_devices << device
 
   print "."
 end
@@ -30,7 +38,7 @@ end
 puts ""
 puts "populate device logs..."
 
-devices.each do |device|
+assigned_devices.each do |device|
   50.times do
     DeviceLog.create(
       temp: rand(10..30),
@@ -48,7 +56,7 @@ puts ""
 puts "populate plants..."
 
 plants = []
-devices.each do |d|
+assigned_devices.each do |d|
   3.times do
     plant = Plant.create!(
       name: Faker::Name.unique.name,
@@ -58,8 +66,10 @@ devices.each do |d|
       light_max: rand(500..1000),
       temp_min: rand(10..20),
       temp_max: rand(20..30),
-      humidity_min: rand(30..60),
-      humidity_max: rand(60..90),
+      air_humidity_min: rand(30..60),
+      air_humidity_max: rand(60..90),
+      soil_humidity_max: rand(60..90),
+      soil_humidity_min: rand(60..90),
       fertilizing: Faker::Lorem.sentence,
       repotting: Faker::Lorem.sentence,
       pruning: Faker::Lorem.sentence,
