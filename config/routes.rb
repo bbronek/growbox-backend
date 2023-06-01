@@ -14,11 +14,11 @@ Rails.application.routes.draw do
       get "plants/public", to: "plants#public_index"
       get "plants/private", to: "plants#private_index"
       get "plants/private/:id", to: "plants#private_show"
-      resources :plants, only: [:show, :create, :update, :destroy]
 
       post "plants/:plant_id/favorite", to: "plants#add_to_favorites"
       delete "plants/:plant_id/favorite", to: "plants#remove_from_favorites"
       get "plants/favorites", to: "plants#favorite_plants"
+      resources :plants, only: [:show, :create, :update, :destroy]
 
       namespace :python_microservice do
         resources :data, only: [:index]
