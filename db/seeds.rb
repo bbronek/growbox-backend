@@ -52,10 +52,117 @@ assigned_devices.each do |device|
   end
 end
 
-puts ""
-puts "populate plants..."
-
 plants = []
+puts ""
+puts "populate template plants..."
+
+english_ivy = Plant.create!(
+  name: "English Ivy",
+  user_id: users.sample.id,
+  device_id: nil,
+  light_min: 1.0,
+  light_max: 5.0,
+  temp_min: -12.0,
+  temp_max: 32.0,
+  air_humidity_min: 0.4,
+  air_humidity_max: 0.75,
+  fertilizing: "Fertilize with a balanced houseplant food every 2 weeks during spring and summer.",
+  repotting: "It's typically repotted every 2 years, or when the plant becomes root-bound.",
+  pruning: "Regularly throughout the growing season to maintain its shape and size.",
+  common_diseases: "Spider mites, aphids, scale, and leaf spot.",
+  appearance: "It has dark-green, glossy leaves, typically shaped like an arrowhead, with pronounced veins.",
+  blooming_time: "Typically in late summer, but indoor plants rarely bloom.",
+  public: true,
+  created_at: Time.now,
+  updated_at: Time.now,
+  description: "A description of the English Ivy",
+  soil_humidity_min: 0.1,
+  soil_humidity_max: 0.9
+)
+
+print "."
+
+monstera = Plant.create!(
+  name: "Monstera Deliciosa",
+  user_id: users.sample.id,
+  device_id: nil,
+  light_min: 1.0,
+  light_max: 5.0,
+  temp_min: 18.0,
+  temp_max: 29.0,
+  air_humidity_min: 0.4,
+  air_humidity_max: 0.7,
+  fertilizing: "Fertilize once a month during the growing season (spring and summer) with a balanced houseplant fertilizer.",
+  repotting: "Every 2 years, or when the plant becomes root-bound.",
+  pruning: "As needed to control the plant's size and shape, or to remove any yellowing leaves.",
+  common_diseases: "Root rot (from overwatering), spider mites, and leaf spot.",
+  appearance: "It's notable for its large, glossy green leaves with deep splits and holes.",
+  blooming_time: "Mature plants bloom with unusual, arum-like flowers, but this is rare for indoor plants.",
+  public: true,
+  created_at: Time.now,
+  updated_at: Time.now,
+  description: "A description of the Monstera Deliciosa",
+  soil_humidity_min: 0.2,
+  soil_humidity_max: 0.8
+)
+
+print "."
+
+african_violet = Plant.create!(
+  name: "African Violet",
+  user_id: users.sample.id,
+  device_id: nil,
+  light_min: 1.0,
+  light_max: 5.0,
+  temp_min: 18.0,
+  temp_max: 27.0,
+  air_humidity_min: 0.4,
+  air_humidity_max: 0.6,
+  fertilizing: "Fertilize every two weeks during the growing season with a high phosphorus plant food.",
+  repotting: "African Violets prefer to be root-bound, so only repot when necessary (typically every year or two).",
+  pruning: "Remove spent flowers and damaged leaves as needed.",
+  common_diseases: "Powdery mildew, botrytis, and root rot (from overwatering).",
+  appearance: "Small, compact plant with fuzzy, oval leaves. Blooms with small, brightly colored flowers in shades of purple, pink, or white.",
+  blooming_time: "With proper care, can bloom almost continuously throughout the year.",
+  public: true,
+  created_at: Time.now,
+  updated_at: Time.now,
+  description: "A description of the African Violet",
+  soil_humidity_min: 0.2,
+  soil_humidity_max: 0.8
+)
+
+print "."
+puts ""
+puts "attach images to template plants..."
+
+english_ivy.image.attach(
+  io: File.open(Rails.root.join('lib', 'assets', 'images', 'english_ivy.png')),
+  filename: 'english_ivy.png',
+  content_type: 'image/png'
+)
+
+print "."
+
+monstera.image.attach(
+  io: File.open(Rails.root.join('lib', 'assets', 'images', 'monstera_deliciosa.png')),
+  filename: 'monstera_deliciosa.png',
+  content_type: 'image/png'
+)
+
+print "."
+
+african_violet.image.attach(
+  io: File.open(Rails.root.join('lib', 'assets', 'images', 'african_violet.png')),
+  filename: 'african_violet.png',
+  content_type: 'image/png'
+)
+print "."
+
+puts ""
+puts "populate devices assigned plants..."
+
+
 assigned_devices.each do |d|
   3.times do
     plant = Plant.create!(
