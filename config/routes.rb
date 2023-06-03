@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
       resources :devices, only: [:index, :show, :create, :destroy, :update], path: "/devices" do
         post :assign, on: :member
+        get :plants, on: :member
         resources :device_logs, only: [:index, :show], shallow: true
       end
 

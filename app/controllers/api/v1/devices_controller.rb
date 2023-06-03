@@ -1,8 +1,8 @@
 module Api
   module V1
     class DevicesController < BaseController
-      before_action :authenticate_user!, only: [:index, :show, :destroy, :assign, :update]
-      before_action :set_device, only: [:destroy, :update]
+      before_action :authenticate_user!
+      before_action :set_device, only: [:destroy, :update, :plants]
 
       def index
         devices = @current_user.devices
@@ -45,6 +45,10 @@ module Api
         else
           render json: device.errors, status: :unprocessable_entity
         end
+      end
+
+      def plants
+        render json: @device.plants, each_serializer: PlantSerializer
       end
 
       private
