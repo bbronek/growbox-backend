@@ -6,12 +6,12 @@ module Api
 
       def index
         devices = @current_user.devices
-        render json: devices
+        render json: devices, each_serializer: DeviceSerializer
       end
 
       def show
         device = @current_user.devices.find(params[:id])
-        render json: device
+        render json: device, serializer: DeviceSerializer
       end
 
       def destroy
@@ -21,10 +21,9 @@ module Api
 
       def assign
         @device = Device.find(params[:id])
-
         @device.user = @current_user
         if @device.save
-          render json: @device, status: :ok
+          render json: @device, status: :ok, serializer: DeviceSerializer
         else
           render json: @device.errors, status: :unprocessable_entity
         end
@@ -32,7 +31,7 @@ module Api
 
       def update
         if @device.update(device_params)
-          render json: @device, status: :ok
+          render json: @device, status: :ok, serializer: DeviceSerializer
         else
           render json: @device.errors, status: :unprocessable_entity
         end
@@ -41,7 +40,7 @@ module Api
       def create
         device = Device.new(device_params)
         if device.save
-          render json: device, status: :created
+          render json: device, status: :created, serializer: DeviceSerializer
         else
           render json: device.errors, status: :unprocessable_entity
         end
@@ -58,7 +57,7 @@ module Api
       end
 
       def device_params
-        params.require(:device).permit(:name)
+        params.require(:device).permit(:name, :image)
       end
     end
   end
