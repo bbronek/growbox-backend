@@ -38,7 +38,7 @@ module Api
       end
 
       def create
-        device = Device.new(device_params)
+        device = Device.new(device_params.merge(user_id: @current_user.id))
         if device.save
           render json: device, status: :created, serializer: DeviceSerializer
         else
