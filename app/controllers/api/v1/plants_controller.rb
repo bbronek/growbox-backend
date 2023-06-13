@@ -1,12 +1,12 @@
 module Api
   module V1
     class PlantsController < BaseController
-      before_action :authenticate_user!, only: [:private_index, :private_show, :create, :update, :destroy, :add_to_favorites, :remove_from_favorites, :favorite_plants]
+      before_action :authenticate_user!, only: [:assigned_index, :private_index, :private_show, :create, :update, :destroy, :add_to_favorites, :remove_from_favorites, :favorite_plants]
       before_action :set_plant, only: [:show, :private_show, :update, :destroy]
 
       # Public CRUD actions
       def public_index
-        @public_plants = Plant.where(public: true)
+        @public_plants = Plant.where(status: 'public')
         render json: @public_plants, each_serializer: PlantSerializer
       end
 
@@ -16,12 +16,18 @@ module Api
 
       # Private CRUD actions
       def private_index
-        @private_plants = Plant.where(user_id: @current_user.id)
+        @private_plants = Plant.where(user_id: @current_user.id, status: 'private')
         render json: @private_plants, each_serializer: PlantSerializer
       end
 
       def private_show
         render json: @plant, serializer: PlantSerializer
+      end
+
+      # Assigned CRUD actions
+      def assigned_index
+        @assigned_plants = Plant.where(user_id: @current_user.id, status: 'assigned')
+        render json: @assigned_plants, each_serializer: PlantSerializer
       end
 
       def create
@@ -79,7 +85,7 @@ module Api
       end
 
       def plant_params
-        params.require(:plant).permit(:name, :device_id, :public, :light_min, :light_max, :temp_min, :temp_max, :air_humidity_min, :air_humidity_max, :soil_humidity_max, :soil_humidity_min, :fertilizing, :repotting, :pruning, :common_diseases, :appearance, :blooming_time, :image)
+        params.require(:plant).permit(:name, :device_id, :status, :light_min, :light_max, :temp_min, :temp_max, :air_humidity_min, :air_humidity_max, :soil_humidity_max, :soil_humidity_min, :fertilizing, :repotting, :pruning, :common_diseases, :appearance, :blooming_time, :image)
       end
     end
   end

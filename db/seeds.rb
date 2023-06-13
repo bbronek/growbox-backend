@@ -72,7 +72,7 @@ english_ivy = Plant.create!(
   common_diseases: "Spider mites, aphids, scale, and leaf spot.",
   appearance: "It has dark-green, glossy leaves, typically shaped like an arrowhead, with pronounced veins.",
   blooming_time: "Typically in late summer, but indoor plants rarely bloom.",
-  public: true,
+  status: "public",
   created_at: Time.now,
   updated_at: Time.now,
   description: "A description of the English Ivy",
@@ -98,7 +98,7 @@ monstera = Plant.create!(
   common_diseases: "Root rot (from overwatering), spider mites, and leaf spot.",
   appearance: "It's notable for its large, glossy green leaves with deep splits and holes.",
   blooming_time: "Mature plants bloom with unusual, arum-like flowers, but this is rare for indoor plants.",
-  public: true,
+  status: "public",
   created_at: Time.now,
   updated_at: Time.now,
   description: "A description of the Monstera Deliciosa",
@@ -124,7 +124,7 @@ african_violet = Plant.create!(
   common_diseases: "Powdery mildew, botrytis, and root rot (from overwatering).",
   appearance: "Small, compact plant with fuzzy, oval leaves. Blooms with small, brightly colored flowers in shades of purple, pink, or white.",
   blooming_time: "With proper care, can bloom almost continuously throughout the year.",
-  public: true,
+  status: "public",
   created_at: Time.now,
   updated_at: Time.now,
   description: "A description of the African Violet",
@@ -183,7 +183,7 @@ assigned_devices.each do |d|
       common_diseases: Faker::Lorem.sentence,
       appearance: Faker::Lorem.sentence,
       blooming_time: Faker::Lorem.sentence,
-      public: [true, false].sample,
+      status: "assigned",
       description: Faker::Lorem.paragraph
     )
     plants << plant

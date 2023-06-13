@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
 
       get "plants/public", to: "plants#public_index"
+      get "plants/assigned", to: "plants#assigned_index"
       get "plants/private", to: "plants#private_index"
       get "plants/private/:id", to: "plants#private_show"
 

@@ -5,6 +5,7 @@ class Plant < ApplicationRecord
   has_one_attached :image
 
   validate :maximum_plants_per_device
+  validates :status, inclusion: { in: %w(public private assigned) }
 
   private
 
