@@ -85,7 +85,7 @@ module Api
       end
 
       def plant_params
-        params.require(:plant).permit(:name, :device_id, :status, :light_min, :light_max, :temp_min, :temp_max, :air_humidity_min, :air_humidity_max, :soil_humidity_max, :soil_humidity_min, :fertilizing, :repotting, :pruning, :common_diseases, :appearance, :blooming_time, :image)
+        params.require(:plant).permit(:name, :device_id, :status, :light_min, :light_max, :temp_min, :temp_max, :air_humidity_min, :air_humidity_max, :soil_humidity_max, :soil_humidity_min, :fertilizing, :repotting, :pruning, :common_diseases, :appearance, :blooming_time, :image, :image_url)
       end
     end
   end

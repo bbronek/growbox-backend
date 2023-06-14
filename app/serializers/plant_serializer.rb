@@ -5,9 +5,9 @@ class PlantSerializer < ActiveModel::Serializer
     :temp_min, :temp_max, :air_humidity_min, :air_humidity_max,
     :fertilizing, :repotting, :pruning, :common_diseases,
     :appearance, :blooming_time, :status, :created_at, :updated_at, :description, :soil_humidity_min,
-    :soil_humidity_max, :image_url
+    :soil_humidity_max, :attached_image_url, :image_url
 
-  def image_url
+  def attached_image_url
     rails_blob_url(object.image) if object.image.attached?
   end
 end
