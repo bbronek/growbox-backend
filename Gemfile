@@ -25,4 +25,5 @@ group :development, :test do
   gem "jwt"
   gem "httparty"
   gem "active_model_serializers"
+  gem "retriable"
 end
