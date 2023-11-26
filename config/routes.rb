@@ -23,7 +23,19 @@ Rails.application.routes.draw do
       resources :plants, only: [:show, :create, :update, :destroy]
 
       namespace :python_microservice do
-        resources :data, only: [:index]
+        resources :data, only: [:index] do
+          collection do
+            get :get_devices
+            post :update_device_data
+            get :get_device_tasks
+            get :get_device_data_history
+            post :add_device_task
+            put :update_device_task
+            post :add_device
+            get :get_data
+            get :get_tasks
+          end
+        end
       end
     end
   end
