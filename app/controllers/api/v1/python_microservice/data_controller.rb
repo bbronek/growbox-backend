@@ -10,7 +10,15 @@ module Api
         include TokenProvider
 
         def get_devices
-          response = make_request('https://python-microservice-api.greenmind.site/devices')
+          cached_response = Rails.cache.read('devices_cache')
+
+          if cached_response.nil?
+            response = make_request('https://python-microservice-api.greenmind.site/devices')
+            Rails.cache.write('devices_cache', response, expires_in: 1.hour)
+          else
+            response = cached_response
+          end
+
           render_response(response)
         end
 
