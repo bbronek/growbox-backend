@@ -127,19 +127,19 @@ module Api
           response = http.request(request)
           { code: response.code.to_i, body: JSON.parse(response.body) }
         rescue StandardError => e
-          { code: 500, body: { error: "Microservice error: #{e.message}" } }
+          { code: 500, body: { error: "Microservice error: #{e.message}", method: method, status_code: response.code.to_i } }
         end
 
         def render_response(response)
           if response[:code] == 200
             render json: response[:body]
           else
-            render_error('Microservice error', response[:code])
+            render_error(response[:body]['error'], response[:code])
           end
         end
 
         def render_error(message, status = :unprocessable_entity)
-          render json: { error: message }, status: status
+          render json: { error: message, method: params[:action], status_code: status }, status: status
         end
       end
     end
