@@ -2,6 +2,7 @@
 
 require 'net/http'
 require 'json'
+require 'retriable'
 
 module Api
   module V1
@@ -9,11 +10,15 @@ module Api
       class DataController < BaseController
         include TokenProvider
 
+        MAX_RETRIES = 3
+        RETRY_INTERVAL = 2
+        REQUEST_TIMEOUT = 10
+
         def get_devices
           cached_response = Rails.cache.read('devices_cache')
 
           if cached_response.nil?
-            response = make_request('https://python-microservice-api.greenmind.site/devices')
+            response = retriable_request { make_request('https://python-microservice-api.greenmind.site/devices') }
             Rails.cache.write('devices_cache', response, expires_in: 1.hour)
           else
             response = cached_response
@@ -22,13 +27,14 @@ module Api
           render_response(response)
         end
 
+
         def index
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
 
           endpoint = 'https://python-microservice-api.greenmind.site/devices/data'
           headers = { 'Authorization' => "Bearer #{access_token}", 'Content-Type' => 'application/json' }
-          response = make_request(endpoint, headers)
+          response = retriable_request { make_request(endpoint, headers) }
           render_response(response)
         end
 
@@ -45,7 +51,7 @@ module Api
           }.to_json
 
           headers = { 'Authorization' => "Bearer #{access_token}", 'Content-Type' => 'application/json' }
-          response = make_request(endpoint, headers, :post, body)
+          response = retriable_request { make_request(endpoint, headers, :post, body) }
           render_response(response)
         end
 
@@ -55,7 +61,7 @@ module Api
 
           endpoint = 'https://python-microservice-api.greenmind.site/devices/tasks'
           headers = { 'Authorization' => "Bearer #{access_token}" }
-          response = make_request(endpoint, headers)
+          response = retriable_request { make_request(endpoint, headers) }
           render_response(response)
         end
 
@@ -65,7 +71,7 @@ module Api
 
           endpoint = 'https://python-microservice-api.greenmind.site/devices/data/history'
           headers = { 'Authorization' => "Bearer #{access_token}" }
-          response = make_request(endpoint, headers)
+          response = retriable_request { make_request(endpoint, headers) }
           render_response(response)
         end
 
@@ -77,7 +83,7 @@ module Api
           body = { task_number: params[:task_number], status: params[:status] }.to_json
 
           headers = { 'Authorization' => "Bearer #{access_token}", 'Content-Type' => 'application/json' }
-          response = make_request(endpoint, headers, :post, body)
+          response = retriable_request { make_request(endpoint, headers, :post, body) }
           render_response(response)
         end
 
@@ -89,7 +95,7 @@ module Api
           body = { task_id: params[:task_id], status: params[:status] }.to_json
 
           headers = { 'Authorization' => "Bearer #{access_token}", 'Content-Type' => 'application/json' }
-          response = make_request(endpoint, headers, :put, body)
+          response = retriable_request { make_request(endpoint, headers, :put, body) }
           render_response(response)
         end
 
@@ -98,28 +104,35 @@ module Api
           body = { device_name: params[:device_name], location: params[:location] }.to_json
 
           headers = { 'Content-Type' => 'application/json' }
-          response = make_request(endpoint, headers, :post, body)
+          response = retriable_request { make_request(endpoint, headers, :post, body) }
           render_response(response)
         end
 
         def get_data
           endpoint = 'https://python-microservice-api.greenmind.site/data'
-          response = make_request(endpoint)
+          response = retriable_request { make_request(endpoint) }
           render_response(response)
         end
 
         def get_tasks
           endpoint = 'https://python-microservice-api.greenmind.site/tasks'
-          response = make_request(endpoint)
+          response = retriable_request { make_request(endpoint) }
           render_response(response)
         end
 
         private
 
+        def retriable_request(&block)
+          Retriable.retriable(on: [StandardError], tries: MAX_RETRIES, base_interval: RETRY_INTERVAL) do
+            block.call
+          end
+        end
+
         def make_request(url, headers = {}, method = :get, body = nil)
           uri = URI.parse(url)
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = true
+          http.read_timeout = REQUEST_TIMEOUT
 
           case method
           when :get
