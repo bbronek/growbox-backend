@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < BaseController
-      before_action :authenticate_user!, only: [:show]
+      before_action :authenticate_user!, only: %i[show show_code]
 
       def index
         render json: User.all
@@ -9,6 +9,10 @@ module Api
 
       def show
         render json: @current_user
+      end
+
+      def show_code
+        render json: { code: @current_user.code }
       end
 
       def create
