@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../apidoc.html'>GrowboxBackend 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>
+    Python_microservice
+    
+  </li>
+  
+</ul>
+
+<div class='page-header'>
+  <h1>
+    Python_microservice
+    <br>
+    <small></small>
+  </h1>
+</div>
+
+
+
+
+
+
+<div class='accordion' id='accordion'>
+
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/get_devices.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-get_devices'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/get_devices
+          </a>
+          <br>
+          <small>Get devices with caching</small>
+        </h2>
+    </div>
+
+
+    <div id='description-get_devices' class='collapse accordion-body'>
+      
+
+
+
+
+
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/index.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-index'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/index
+          </a>
+          <br>
+          <small>Get device data</small>
+        </h2>
+    </div>
+
+
+    <div id='description-index' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/update_device_data.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update_device_data'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/python_microservice/update_device_data
+          </a>
+          <br>
+          <small>Update device data</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update_device_data' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>temp</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Temperature</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>soil_hum</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Soil humidity</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>air_hum</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Air humidity</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>light</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Light intensity</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/get_device_tasks.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-get_device_tasks'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/get_device_tasks
+          </a>
+          <br>
+          <small>Get device tasks</small>
+        </h2>
+    </div>
+
+
+    <div id='description-get_device_tasks' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/get_device_data_history.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-get_device_data_history'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/get_device_data_history
+          </a>
+          <br>
+          <small>Get device data history</small>
+        </h2>
+    </div>
+
+
+    <div id='description-get_device_data_history' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/add_device_task.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-add_device_task'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/python_microservice/add_device_task
+          </a>
+          <br>
+          <small>Add device task</small>
+        </h2>
+    </div>
+
+
+    <div id='description-add_device_task' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>task_number</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Task number</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>status</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Task status</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/update_device_task.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-update_device_task'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            PUT /api/v1/python_microservice/update_device_task
+          </a>
+          <br>
+          <small>Update device task</small>
+        </h2>
+    </div>
+
+
+    <div id='description-update_device_task' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>task_id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Task ID</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>status</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Task status</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/add_device.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-add_device'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            POST /api/v1/python_microservice/add_device
+          </a>
+          <br>
+          <small>Add device</small>
+        </h2>
+    </div>
+
+
+    <div id='description-add_device' class='collapse accordion-body'>
+      
+
+
+
+
+
+  <h3>Params</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>device_name</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device name</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>location</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Device location</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+    </tbody>
+  </table>
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/get_data.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-get_data'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/get_data
+          </a>
+          <br>
+          <small>Get microservice data</small>
+        </h2>
+    </div>
+
+
+    <div id='description-get_data' class='collapse accordion-body'>
+      
+
+
+
+
+
+
+
+
+    </div>
+    <hr>
+    <div class='pull-right small'>
+      <a href='../apidoc/python_microservice/get_tasks.html'> >>> </a>
+    </div>
+    <div>
+        <h2>
+          <a href='#description-get_tasks'
+           class='accordion-toggle'
+           data-toggle='collapse'
+           data-parent='#accordion'>
+            GET /api/v1/python_microservice/get_tasks
+          </a>
+          <br>
+          <small>Get microservice tasks</small>
+        </h2>
+    </div>
+
+
+    <div id='description-get_tasks' class='collapse accordion-body'>
+      
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer></footer>
+  </div>
+  <script type='text/javascript' src='../apidoc/javascripts/bundled/jquery.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

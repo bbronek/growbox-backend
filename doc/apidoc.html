@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='./apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li class='active'><a href='./apidoc.html'>GrowboxBackend 1.0</a></li>
+  
+</ul>
+
+<div>
+<p>Another API description</p>
+</div>
+
+<h1 class='page-header'>Resources</h1>
+
+  <h2>
+    <a href='./apidoc/authentication.html'>
+      Authentication
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/authentication/login.html'>POST /api/v1/login</a>
+            </td>
+            <td width='60%'>Authenticate and obtain a JWT token</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/authentication/logout.html'>POST /api/v1/logout</a>
+            </td>
+            <td width='60%'>Invalidate the JWT token and log out the user</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/device_logs.html'>
+      Device_logs
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/device_logs/index.html'>GET /api/v1/device_logs</a>
+            </td>
+            <td width='60%'>Get all device logs for a specific device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/device_logs/show.html'>GET /api/v1/device_logs/:id</a>
+            </td>
+            <td width='60%'>Show details of a specific device log</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/devices.html'>
+      Devices
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/index.html'>GET /api/v1/devices</a>
+            </td>
+            <td width='60%'>Get all devices of the current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/show.html'>GET /api/v1/devices/:id</a>
+            </td>
+            <td width='60%'>Show details of a specific device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/destroy.html'>DELETE /api/v1/devices/:id</a>
+            </td>
+            <td width='60%'>Delete a device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/assign.html'>POST /api/v1/devices/assign</a>
+            </td>
+            <td width='60%'>Assign a device to the current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/update.html'>PUT /api/v1/devices/:id</a>
+            </td>
+            <td width='60%'>Update a device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/create.html'>POST /api/v1/devices</a>
+            </td>
+            <td width='60%'>Create a new device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/devices/plants.html'>GET /api/v1/devices/:id/plants</a>
+            </td>
+            <td width='60%'>Get all plants associated with a specific device</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/plants.html'>
+      Plants
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/public_index.html'>GET /api/v1/plants/public_index</a>
+            </td>
+            <td width='60%'>Get all public plants</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/show.html'>GET /api/v1/plants/:id</a>
+            </td>
+            <td width='60%'>Show details of a plant</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/private_index.html'>GET /api/v1/plants/private_index</a>
+            </td>
+            <td width='60%'>Get all private plants of the current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/private_show.html'>GET /api/v1/plants/private_show/:id</a>
+            </td>
+            <td width='60%'>Show details of a private plant</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/assigned_index.html'>GET /api/v1/plants/assigned_index</a>
+            </td>
+            <td width='60%'>Get all assigned plants of the current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/create.html'>POST /api/v1/plants</a>
+            </td>
+            <td width='60%'>Create a new plant</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/update.html'>PUT /api/v1/plants/:id</a>
+            </td>
+            <td width='60%'>Update a plant</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/destroy.html'>DELETE /api/v1/plants/:id</a>
+            </td>
+            <td width='60%'>Delete a plant</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/add_to_favorites.html'>POST /api/v1/plants/add_to_favorites</a>
+            </td>
+            <td width='60%'>Add a plant to favorites</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/remove_from_favorites.html'>POST /api/v1/plants/remove_from_favorites</a>
+            </td>
+            <td width='60%'>Remove a plant from favorites</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/plants/favorite_plants.html'>GET /api/v1/plants/favorite_plants</a>
+            </td>
+            <td width='60%'>Get all favorite plants of the current user</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/python_microservice.html'>
+      Python_microservice
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/get_devices.html'>GET /api/v1/python_microservice/get_devices</a>
+            </td>
+            <td width='60%'>Get devices with caching</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/index.html'>GET /api/v1/python_microservice/index</a>
+            </td>
+            <td width='60%'>Get device data</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/update_device_data.html'>POST /api/v1/python_microservice/update_device_data</a>
+            </td>
+            <td width='60%'>Update device data</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/get_device_tasks.html'>GET /api/v1/python_microservice/get_device_tasks</a>
+            </td>
+            <td width='60%'>Get device tasks</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/get_device_data_history.html'>GET /api/v1/python_microservice/get_device_data_history</a>
+            </td>
+            <td width='60%'>Get device data history</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/add_device_task.html'>POST /api/v1/python_microservice/add_device_task</a>
+            </td>
+            <td width='60%'>Add device task</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/update_device_task.html'>PUT /api/v1/python_microservice/update_device_task</a>
+            </td>
+            <td width='60%'>Update device task</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/add_device.html'>POST /api/v1/python_microservice/add_device</a>
+            </td>
+            <td width='60%'>Add device</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/get_data.html'>GET /api/v1/python_microservice/get_data</a>
+            </td>
+            <td width='60%'>Get microservice data</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/python_microservice/get_tasks.html'>GET /api/v1/python_microservice/get_tasks</a>
+            </td>
+            <td width='60%'>Get microservice tasks</td>
+          </tr>
+    </tbody>
+  </table>
+  <h2>
+    <a href='./apidoc/users.html'>
+      Users
+    </a>
+    <br>
+    <small></small>
+  </h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td>
+              <a href='./apidoc/users/index.html'>GET /api/v1/users</a>
+            </td>
+            <td width='60%'>Get all users</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/users/show.html'>GET /api/v1/users/:id</a>
+            </td>
+            <td width='60%'>Show current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/users/show_code.html'>GET /api/v1/users/show_code</a>
+            </td>
+            <td width='60%'>Show code for the current user</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/users/auth_code.html'>POST /api/v1/auth_code</a>
+            </td>
+            <td width='60%'>Authenticate user by code</td>
+          </tr>
+          <tr>
+            <td>
+              <a href='./apidoc/users/create.html'>POST /api/v1/users</a>
+            </td>
+            <td width='60%'>Create an user</td>
+          </tr>
+    </tbody>
+  </table>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer></footer>
+  </div>
+  <script type='text/javascript' src='./apidoc/javascripts/bundled/jquery.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='./apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

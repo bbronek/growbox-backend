@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap.min.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/prettify.css'/>
+<link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/bundled/bootstrap-responsive.min.css'/>
+  <link type='text/css' rel='stylesheet' href='../../apidoc/stylesheets/application.css'/>
+  <!-- IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div id='container'>
+        <ul class='breadcrumb'>
+  <li>
+    <a href='../../apidoc.html'>GrowboxBackend 1.0</a>
+    <span class='divider'>/</span>
+  </li>
+  <li>
+    <a href='../../apidoc/plants.html'>
+      Plants
+      
+    </a>
+    <span class='divider'>/</span>
+  </li>
+  <li class='active'>update</li>
+  
+
+</ul>
+
+  <div class='page-header'>
+    <h1>
+      PUT /api/v1/plants/:id
+      <br>
+      <small>Update a plant</small>
+    </h1>
+  </div>
+
+<div>
+
+  
+
+
+
+
+
+  <h2>Params</h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Param name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>id</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>ID of the plant to be updated</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>plant</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Plant info</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Hash</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+    <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[name]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Name of the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[device_id]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>ID of the device associated with the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[status]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Status of the plant (public/private/assigned)</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[light_min]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Minimum light requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[light_max]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Maximum light requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[temp_min]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Minimum temperature requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[temp_max]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Maximum temperature requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[air_humidity_min]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Minimum air humidity requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[air_humidity_max]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Maximum air humidity requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[soil_humidity_min]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Minimum soil humidity requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[soil_humidity_max]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Maximum soil humidity requirement for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[fertilizing]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Fertilizing details for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[repotting]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Repotting details for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[pruning]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Pruning details for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[common_diseases]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Common diseases for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[appearance]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Appearance details for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[blooming_time]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Blooming time for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[image]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Image data for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(250,250,250);'>
+    <td>
+      <strong>plant[image_url]</strong>
+      <br>
+      <small>
+        optional
+        
+      </small>
+    </td>
+    <td>
+      
+<p>URL of the image for the plant</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a String</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+
+
+    </tbody>
+  </table>
+
+
+
+</div>
+
+
+        
+      </div>
+    </div>
+    <hr>
+    <footer></footer>
+  </div>
+  <script type='text/javascript' src='../../apidoc/javascripts/bundled/jquery.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/bootstrap-collapse.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/bundled/prettify.js'></script>
+<script type='text/javascript' src='../../apidoc/javascripts/apipie.js'></script>
+</body>
+</html>

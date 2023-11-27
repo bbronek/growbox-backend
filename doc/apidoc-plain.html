@@ -1,0 +1,2094 @@
+  <h4><a href='#authentication'>Authentication</a></h4>
+  <ul>
+      <li><a href='#authentication-login'>login</a></li>
+      <li><a href='#authentication-logout'>logout</a></li>
+  </ul>
+  <h4><a href='#device_logs'>Device_logs</a></h4>
+  <ul>
+      <li><a href='#device_logs-index'>index</a></li>
+      <li><a href='#device_logs-show'>show</a></li>
+  </ul>
+  <h4><a href='#devices'>Devices</a></h4>
+  <ul>
+      <li><a href='#devices-index'>index</a></li>
+      <li><a href='#devices-show'>show</a></li>
+      <li><a href='#devices-destroy'>destroy</a></li>
+      <li><a href='#devices-assign'>assign</a></li>
+      <li><a href='#devices-update'>update</a></li>
+      <li><a href='#devices-create'>create</a></li>
+      <li><a href='#devices-plants'>plants</a></li>
+  </ul>
+  <h4><a href='#plants'>Plants</a></h4>
+  <ul>
+      <li><a href='#plants-public_index'>public_index</a></li>
+      <li><a href='#plants-show'>show</a></li>
+      <li><a href='#plants-private_index'>private_index</a></li>
+      <li><a href='#plants-private_show'>private_show</a></li>
+      <li><a href='#plants-assigned_index'>assigned_index</a></li>
+      <li><a href='#plants-create'>create</a></li>
+      <li><a href='#plants-update'>update</a></li>
+      <li><a href='#plants-destroy'>destroy</a></li>
+      <li><a href='#plants-add_to_favorites'>add_to_favorites</a></li>
+      <li><a href='#plants-remove_from_favorites'>remove_from_favorites</a></li>
+      <li><a href='#plants-favorite_plants'>favorite_plants</a></li>
+  </ul>
+  <h4><a href='#python_microservice'>Python_microservice</a></h4>
+  <ul>
+      <li><a href='#python_microservice-get_devices'>get_devices</a></li>
+      <li><a href='#python_microservice-index'>index</a></li>
+      <li><a href='#python_microservice-update_device_data'>update_device_data</a></li>
+      <li><a href='#python_microservice-get_device_tasks'>get_device_tasks</a></li>
+      <li><a href='#python_microservice-get_device_data_history'>get_device_data_history</a></li>
+      <li><a href='#python_microservice-add_device_task'>add_device_task</a></li>
+      <li><a href='#python_microservice-update_device_task'>update_device_task</a></li>
+      <li><a href='#python_microservice-add_device'>add_device</a></li>
+      <li><a href='#python_microservice-get_data'>get_data</a></li>
+      <li><a href='#python_microservice-get_tasks'>get_tasks</a></li>
+  </ul>
+  <h4><a href='#users'>Users</a></h4>
+  <ul>
+      <li><a href='#users-index'>index</a></li>
+      <li><a href='#users-show'>show</a></li>
+      <li><a href='#users-show_code'>show_code</a></li>
+      <li><a href='#users-auth_code'>auth_code</a></li>
+      <li><a href='#users-create'>create</a></li>
+  </ul>
+
+
+
+  <hr/>
+
+  <div>
+    <h2 id="authentication">
+      <a href='#authentication'>Authentication</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="authentication-login">
+      <a href='#authentication'>Authentication</a> / <a href='#authentication-login'>login</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/login
+            <br>
+            <small>Authenticate and obtain a JWT token</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>email </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>User email</p>
+
+    </li>
+    
+    <li>
+      <strong>password </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>User password</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="authentication-logout">
+      <a href='#authentication'>Authentication</a> / <a href='#authentication-logout'>logout</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/logout
+            <br>
+            <small>Invalidate the JWT token and log out the user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="device_logs">
+      <a href='#device_logs'>Device_logs</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="device_logs-index">
+      <a href='#device_logs'>Device_logs</a> / <a href='#device_logs-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/device_logs
+            <br>
+            <small>Get all device logs for a specific device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device for which logs are to be shown</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="device_logs-show">
+      <a href='#device_logs'>Device_logs</a> / <a href='#device_logs-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/device_logs/:id
+            <br>
+            <small>Show details of a specific device log</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device to which the log belongs</p>
+
+    </li>
+    
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the log to be shown</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="devices">
+      <a href='#devices'>Devices</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="devices-index">
+      <a href='#devices'>Devices</a> / <a href='#devices-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/devices
+            <br>
+            <small>Get all devices of the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-show">
+      <a href='#devices'>Devices</a> / <a href='#devices-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/devices/:id
+            <br>
+            <small>Show details of a specific device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device to be shown</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-destroy">
+      <a href='#devices'>Devices</a> / <a href='#devices-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /api/v1/devices/:id
+            <br>
+            <small>Delete a device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device to be deleted</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-assign">
+      <a href='#devices'>Devices</a> / <a href='#devices-assign'>assign</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/devices/assign
+            <br>
+            <small>Assign a device to the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device to be assigned</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-update">
+      <a href='#devices'>Devices</a> / <a href='#devices-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /api/v1/devices/:id
+            <br>
+            <small>Update a device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device to be updated</p>
+
+    </li>
+    
+    <li>
+      <strong>device </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+<p>Device info</p>
+
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Name of the device</p>
+
+    </li>
+    
+    <li>
+      <strong>image </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Image data for the device</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-create">
+      <a href='#devices'>Devices</a> / <a href='#devices-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/devices
+            <br>
+            <small>Create a new device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>code </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>User’s code, required: true</p>
+
+    </li>
+    
+    <li>
+      <strong>device </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+<p>Device info</p>
+
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Name of the device</p>
+
+    </li>
+    
+    <li>
+      <strong>image </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Image data for the device</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="devices-plants">
+      <a href='#devices'>Devices</a> / <a href='#devices-plants'>plants</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/devices/:id/plants
+            <br>
+            <small>Get all plants associated with a specific device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device for which plants are to be shown</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="plants">
+      <a href='#plants'>Plants</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="plants-public_index">
+      <a href='#plants'>Plants</a> / <a href='#plants-public_index'>public_index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/public_index
+            <br>
+            <small>Get all public plants</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-show">
+      <a href='#plants'>Plants</a> / <a href='#plants-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/:id
+            <br>
+            <small>Show details of a plant</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-private_index">
+      <a href='#plants'>Plants</a> / <a href='#plants-private_index'>private_index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/private_index
+            <br>
+            <small>Get all private plants of the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-private_show">
+      <a href='#plants'>Plants</a> / <a href='#plants-private_show'>private_show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/private_show/:id
+            <br>
+            <small>Show details of a private plant</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-assigned_index">
+      <a href='#plants'>Plants</a> / <a href='#plants-assigned_index'>assigned_index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/assigned_index
+            <br>
+            <small>Get all assigned plants of the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-create">
+      <a href='#plants'>Plants</a> / <a href='#plants-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/plants
+            <br>
+            <small>Create a new plant</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>plant </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+<p>Plant info</p>
+
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Name of the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device associated with the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Status of the plant (public/private/assigned)</p>
+
+    </li>
+    
+    <li>
+      <strong>light_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum light requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>light_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum light requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>temp_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum temperature requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>temp_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum temperature requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>air_humidity_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum air humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>air_humidity_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum air humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_humidity_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum soil humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_humidity_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum soil humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>fertilizing </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Fertilizing details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>repotting </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Repotting details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>pruning </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Pruning details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>common_diseases </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Common diseases for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>appearance </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Appearance details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>blooming_time </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Blooming time for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>image </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Image data for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>image_url </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>URL of the image for the plant</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-update">
+      <a href='#plants'>Plants</a> / <a href='#plants-update'>update</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /api/v1/plants/:id
+            <br>
+            <small>Update a plant</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the plant to be updated</p>
+
+    </li>
+    
+    <li>
+      <strong>plant </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+<p>Plant info</p>
+
+    </li>
+    <ul>
+    <li>
+      <strong>name </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Name of the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the device associated with the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Status of the plant (public/private/assigned)</p>
+
+    </li>
+    
+    <li>
+      <strong>light_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum light requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>light_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum light requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>temp_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum temperature requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>temp_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum temperature requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>air_humidity_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum air humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>air_humidity_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum air humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_humidity_min </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Minimum soil humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_humidity_max </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Maximum soil humidity requirement for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>fertilizing </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Fertilizing details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>repotting </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Repotting details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>pruning </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Pruning details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>common_diseases </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Common diseases for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>appearance </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Appearance details for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>blooming_time </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Blooming time for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>image </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Image data for the plant</p>
+
+    </li>
+    
+    <li>
+      <strong>image_url </strong>:
+      <small>
+        optional
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>URL of the image for the plant</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-destroy">
+      <a href='#plants'>Plants</a> / <a href='#plants-destroy'>destroy</a>
+      </h3>
+
+      <div>
+          <h4>
+              DELETE /api/v1/plants/:id
+            <br>
+            <small>Delete a plant</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the plant to be deleted</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-add_to_favorites">
+      <a href='#plants'>Plants</a> / <a href='#plants-add_to_favorites'>add_to_favorites</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/plants/add_to_favorites
+            <br>
+            <small>Add a plant to favorites</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>plant_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the plant to be added to favorites</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-remove_from_favorites">
+      <a href='#plants'>Plants</a> / <a href='#plants-remove_from_favorites'>remove_from_favorites</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/plants/remove_from_favorites
+            <br>
+            <small>Remove a plant from favorites</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>plant_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>ID of the plant to be removed from favorites</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="plants-favorite_plants">
+      <a href='#plants'>Plants</a> / <a href='#plants-favorite_plants'>favorite_plants</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/plants/favorite_plants
+            <br>
+            <small>Get all favorite plants of the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="python_microservice">
+      <a href='#python_microservice'>Python_microservice</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="python_microservice-get_devices">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_devices'>get_devices</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_devices
+            <br>
+            <small>Get devices with caching</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-index">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/index
+            <br>
+            <small>Get device data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-update_device_data">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-update_device_data'>update_device_data</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/update_device_data
+            <br>
+            <small>Update device data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>temp </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Temperature</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_hum </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Soil humidity</p>
+
+    </li>
+    
+    <li>
+      <strong>air_hum </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Air humidity</p>
+
+    </li>
+    
+    <li>
+      <strong>light </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Light intensity</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-get_device_tasks">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_device_tasks'>get_device_tasks</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_device_tasks
+            <br>
+            <small>Get device tasks</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-get_device_data_history">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_device_data_history'>get_device_data_history</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_device_data_history
+            <br>
+            <small>Get device data history</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-add_device_task">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-add_device_task'>add_device_task</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/add_device_task
+            <br>
+            <small>Add device task</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>task_number </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task number</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task status</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-update_device_task">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-update_device_task'>update_device_task</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /api/v1/python_microservice/update_device_task
+            <br>
+            <small>Update device task</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>task_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task ID</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task status</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-add_device">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-add_device'>add_device</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/add_device
+            <br>
+            <small>Add device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_name </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device name</p>
+
+    </li>
+    
+    <li>
+      <strong>location </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device location</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-get_data">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_data'>get_data</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_data
+            <br>
+            <small>Get microservice data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="python_microservice-get_tasks">
+      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_tasks'>get_tasks</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_tasks
+            <br>
+            <small>Get microservice tasks</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="users">
+      <a href='#users'>Users</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="users-index">
+      <a href='#users'>Users</a> / <a href='#users-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/users
+            <br>
+            <small>Get all users</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="users-show">
+      <a href='#users'>Users</a> / <a href='#users-show'>show</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/users/:id
+            <br>
+            <small>Show current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="users-show_code">
+      <a href='#users'>Users</a> / <a href='#users-show_code'>show_code</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/users/show_code
+            <br>
+            <small>Show code for the current user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="users-auth_code">
+      <a href='#users'>Users</a> / <a href='#users-auth_code'>auth_code</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/auth_code
+            <br>
+            <small>Authenticate user by code</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>code </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>User code</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="users-create">
+      <a href='#users'>Users</a> / <a href='#users-create'>create</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/users
+            <br>
+            <small>Create an user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>user </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Hash</p>
+ ]
+      </small>
+      
+<p>User info</p>
+
+    </li>
+    <ul>
+    <li>
+      <strong>email </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Email</p>
+
+    </li>
+    
+    <li>
+      <strong>password </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Password</p>
+
+    </li>
+    
+    <li>
+      <strong>password_confirmation </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Password confirmation</p>
+
+    </li>
+    
+</ul>
+
+</ul>
+
+      </div>
+  </div>
