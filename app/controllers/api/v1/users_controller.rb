@@ -13,6 +13,7 @@ module Api
 
       def create
         user = User.new(user_params)
+        user.code = generate_random_code
 
         if user.save
           jwt_token = user.generate_jwt
@@ -26,6 +27,11 @@ module Api
 
       def user_params
         params.require(:user).permit(:email, :password, :password_confirmation)
+      end
+
+      def generate_random_code
+        charset = Array('A'..'Z') + Array('a'..'z') + Array('0'..'9')
+        Array.new(6) { charset.sample }.join
       end
     end
   end
