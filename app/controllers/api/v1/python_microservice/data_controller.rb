@@ -7,7 +7,7 @@ require 'retriable'
 module Api
   module V1
     module PythonMicroservice
-      class PythonMicroserviceController < BaseController
+      class DataController < BaseController
         include TokenProvider
 
         MAX_RETRIES = 3

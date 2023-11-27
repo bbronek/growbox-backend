@@ -3,6 +3,19 @@
       <li><a href='#authentication-login'>login</a></li>
       <li><a href='#authentication-logout'>logout</a></li>
   </ul>
+  <h4><a href='#data'>Data</a></h4>
+  <ul>
+      <li><a href='#data-get_devices'>get_devices</a></li>
+      <li><a href='#data-index'>index</a></li>
+      <li><a href='#data-update_device_data'>update_device_data</a></li>
+      <li><a href='#data-get_device_tasks'>get_device_tasks</a></li>
+      <li><a href='#data-get_device_data_history'>get_device_data_history</a></li>
+      <li><a href='#data-add_device_task'>add_device_task</a></li>
+      <li><a href='#data-update_device_task'>update_device_task</a></li>
+      <li><a href='#data-add_device'>add_device</a></li>
+      <li><a href='#data-get_data'>get_data</a></li>
+      <li><a href='#data-get_tasks'>get_tasks</a></li>
+  </ul>
   <h4><a href='#device_logs'>Device_logs</a></h4>
   <ul>
       <li><a href='#device_logs-index'>index</a></li>
@@ -31,19 +44,6 @@
       <li><a href='#plants-add_to_favorites'>add_to_favorites</a></li>
       <li><a href='#plants-remove_from_favorites'>remove_from_favorites</a></li>
       <li><a href='#plants-favorite_plants'>favorite_plants</a></li>
-  </ul>
-  <h4><a href='#python_microservice'>Python_microservice</a></h4>
-  <ul>
-      <li><a href='#python_microservice-get_devices'>get_devices</a></li>
-      <li><a href='#python_microservice-index'>index</a></li>
-      <li><a href='#python_microservice-update_device_data'>update_device_data</a></li>
-      <li><a href='#python_microservice-get_device_tasks'>get_device_tasks</a></li>
-      <li><a href='#python_microservice-get_device_data_history'>get_device_data_history</a></li>
-      <li><a href='#python_microservice-add_device_task'>add_device_task</a></li>
-      <li><a href='#python_microservice-update_device_task'>update_device_task</a></li>
-      <li><a href='#python_microservice-add_device'>add_device</a></li>
-      <li><a href='#python_microservice-get_data'>get_data</a></li>
-      <li><a href='#python_microservice-get_tasks'>get_tasks</a></li>
   </ul>
   <h4><a href='#users'>Users</a></h4>
   <ul>
@@ -130,6 +130,462 @@
               POST /api/v1/logout
             <br>
             <small>Invalidate the JWT token and log out the user</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h2 id="data">
+      <a href='#data'>Data</a><br>
+      <small></small>
+    </h2>
+  </div>
+
+
+  <div>
+
+      <hr/>
+
+      <h3 id="data-get_devices">
+      <a href='#data'>Data</a> / <a href='#data-get_devices'>get_devices</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_devices
+            <br>
+            <small>Get devices with caching</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="data-index">
+      <a href='#data'>Data</a> / <a href='#data-index'>index</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/index
+            <br>
+            <small>Get device data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-update_device_data">
+      <a href='#data'>Data</a> / <a href='#data-update_device_data'>update_device_data</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/update_device_data
+            <br>
+            <small>Update device data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>temp </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Temperature</p>
+
+    </li>
+    
+    <li>
+      <strong>soil_hum </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Soil humidity</p>
+
+    </li>
+    
+    <li>
+      <strong>air_hum </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Air humidity</p>
+
+    </li>
+    
+    <li>
+      <strong>light </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Light intensity</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-get_device_tasks">
+      <a href='#data'>Data</a> / <a href='#data-get_device_tasks'>get_device_tasks</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_device_tasks
+            <br>
+            <small>Get device tasks</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-get_device_data_history">
+      <a href='#data'>Data</a> / <a href='#data-get_device_data_history'>get_device_data_history</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_device_data_history
+            <br>
+            <small>Get device data history</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-add_device_task">
+      <a href='#data'>Data</a> / <a href='#data-add_device_task'>add_device_task</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/add_device_task
+            <br>
+            <small>Add device task</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>task_number </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task number</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task status</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-update_device_task">
+      <a href='#data'>Data</a> / <a href='#data-update_device_task'>update_device_task</a>
+      </h3>
+
+      <div>
+          <h4>
+              PUT /api/v1/python_microservice/update_device_task
+            <br>
+            <small>Update device task</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>task_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task ID</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Task status</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-add_device">
+      <a href='#data'>Data</a> / <a href='#data-add_device'>add_device</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/add_device
+            <br>
+            <small>Add device</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_name </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device name</p>
+
+    </li>
+    
+    <li>
+      <strong>location </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device location</p>
+
+    </li>
+    
+</ul>
+
+      </div>
+      <hr/>
+
+      <h3 id="data-get_data">
+      <a href='#data'>Data</a> / <a href='#data-get_data'>get_data</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_data
+            <br>
+            <small>Get microservice data</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+      </div>
+      <hr/>
+
+      <h3 id="data-get_tasks">
+      <a href='#data'>Data</a> / <a href='#data-get_tasks'>get_tasks</a>
+      </h3>
+
+      <div>
+          <h4>
+              GET /api/v1/python_microservice/get_tasks
+            <br>
+            <small>Get microservice tasks</small>
           </h4>
       </div>
 
@@ -1438,462 +1894,6 @@
               GET /api/v1/plants/favorite_plants
             <br>
             <small>Get all favorite plants of the current user</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-      </div>
-  </div>
-
-  <hr/>
-
-  <div>
-    <h2 id="python_microservice">
-      <a href='#python_microservice'>Python_microservice</a><br>
-      <small></small>
-    </h2>
-  </div>
-
-
-  <div>
-
-      <hr/>
-
-      <h3 id="python_microservice-get_devices">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_devices'>get_devices</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/get_devices
-            <br>
-            <small>Get devices with caching</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-index">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-index'>index</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/index
-            <br>
-            <small>Get device data</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-update_device_data">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-update_device_data'>update_device_data</a>
-      </h3>
-
-      <div>
-          <h4>
-              POST /api/v1/python_microservice/update_device_data
-            <br>
-            <small>Update device data</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
-      <strong>temp </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Temperature</p>
-
-    </li>
-    
-    <li>
-      <strong>soil_hum </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Soil humidity</p>
-
-    </li>
-    
-    <li>
-      <strong>air_hum </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Air humidity</p>
-
-    </li>
-    
-    <li>
-      <strong>light </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Light intensity</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-get_device_tasks">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_device_tasks'>get_device_tasks</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/get_device_tasks
-            <br>
-            <small>Get device tasks</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-get_device_data_history">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_device_data_history'>get_device_data_history</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/get_device_data_history
-            <br>
-            <small>Get device data history</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-add_device_task">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-add_device_task'>add_device_task</a>
-      </h3>
-
-      <div>
-          <h4>
-              POST /api/v1/python_microservice/add_device_task
-            <br>
-            <small>Add device task</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
-      <strong>task_number </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Task number</p>
-
-    </li>
-    
-    <li>
-      <strong>status </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Task status</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-update_device_task">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-update_device_task'>update_device_task</a>
-      </h3>
-
-      <div>
-          <h4>
-              PUT /api/v1/python_microservice/update_device_task
-            <br>
-            <small>Update device task</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
-      <strong>task_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Task ID</p>
-
-    </li>
-    
-    <li>
-      <strong>status </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Task status</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-add_device">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-add_device'>add_device</a>
-      </h3>
-
-      <div>
-          <h4>
-              POST /api/v1/python_microservice/add_device
-            <br>
-            <small>Add device</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_name </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device name</p>
-
-    </li>
-    
-    <li>
-      <strong>location </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>Device location</p>
-
-    </li>
-    
-</ul>
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-get_data">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_data'>get_data</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/get_data
-            <br>
-            <small>Get microservice data</small>
-          </h4>
-      </div>
-
-      <div>
-        
-
-
-      </div>
-      <hr/>
-
-      <h3 id="python_microservice-get_tasks">
-      <a href='#python_microservice'>Python_microservice</a> / <a href='#python_microservice-get_tasks'>get_tasks</a>
-      </h3>
-
-      <div>
-          <h4>
-              GET /api/v1/python_microservice/get_tasks
-            <br>
-            <small>Get microservice tasks</small>
           </h4>
       </div>
 
