@@ -14,7 +14,7 @@ module Api
         RETRY_INTERVAL = 2
         REQUEST_TIMEOUT = 10
 
-        api :GET, '/v1/python_microservice/get_devices', 'Get devices with caching'
+        api :GET, '/v1/python_microservice/data/get_devices', 'Get devices with caching'
         def get_devices
           cached_response = Rails.cache.read('devices_cache')
 
@@ -28,8 +28,8 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/index', 'Get device data'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/index', 'Get device data'
+        param :device_id, Integer, desc: 'Device ID', required: true
         def index
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -40,8 +40,8 @@ module Api
           render_response(response)
         end
 
-        api :POST, '/v1/python_microservice/update_device_data', 'Update device data'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :POST, '/v1/python_microservice/data/update_device_data', 'Update device data'
+        param :device_id, Integer, desc: 'Device ID', required: true
         param :temp, String, desc: 'Temperature', required: true
         param :soil_hum, String, desc: 'Soil humidity', required: true
         param :air_hum, String, desc: 'Air humidity', required: true
@@ -63,8 +63,8 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/get_device_tasks', 'Get device tasks'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/get_device_tasks', 'Get device tasks'
+        param :device_id, Integer, desc: 'Device ID', required: true
         def get_device_tasks
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -75,8 +75,8 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/get_device_data_history', 'Get device data history'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/get_device_data_history', 'Get device data history'
+        param :device_id, Integer, desc: 'Device ID', required: true
         def get_device_data_history
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -87,8 +87,8 @@ module Api
           render_response(response)
         end
 
-        api :POST, '/v1/python_microservice/add_device_task', 'Add device task'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :POST, '/v1/python_microservice/data/add_device_task', 'Add device task'
+        param :device_id, Integer, desc: 'Device ID', required: true
         param :task_number, String, desc: 'Task number', required: true
         param :status, String, desc: 'Task status', required: true
         def add_device_task
@@ -103,8 +103,8 @@ module Api
           render_response(response)
         end
 
-        api :PUT, '/v1/python_microservice/update_device_task', 'Update device task'
-        param :device_id, String, desc: 'Device ID', required: true
+        api :PUT, '/v1/python_microservice/data/update_device_task', 'Update device task'
+        param :device_id, Integer, desc: 'Device ID', required: true
         param :task_id, String, desc: 'Task ID', required: true
         param :status, String, desc: 'Task status', required: true
         def update_device_task
@@ -119,7 +119,7 @@ module Api
           render_response(response)
         end
 
-        api :POST, '/v1/python_microservice/add_device', 'Add device'
+        api :POST, '/v1/python_microservice/data/add_device', 'Add device'
         param :device_name, String, desc: 'Device name', required: true
         param :location, String, desc: 'Device location', required: true
         def add_device
@@ -131,14 +131,14 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/get_data', 'Get microservice data'
+        api :GET, '/v1/python_microservice/data/get_data', 'Get microservice data'
         def get_data
           endpoint = 'https://python-microservice-api.greenmind.site/data'
           response = api_request { make_request(endpoint) }
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/get_tasks', 'Get microservice tasks'
+        api :GET, '/v1/python_microservice/data/get_tasks', 'Get microservice tasks'
         def get_tasks
           endpoint = 'https://python-microservice-api.greenmind.site/tasks'
           response = api_request { make_request(endpoint) }
