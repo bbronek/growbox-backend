@@ -16,9 +16,9 @@ module Api
 
         if user.save
           jwt_token = user.generate_jwt
-          render json: {token: jwt_token}
+          render json: { token: jwt_token }
         else
-          render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
         end
       end
 
