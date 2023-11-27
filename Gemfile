@@ -26,4 +26,6 @@ group :development, :test do
   gem "httparty"
   gem "active_model_serializers"
   gem "retriable"
+  gem 'apipie-rails'
 end
+
