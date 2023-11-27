@@ -83,7 +83,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            GET /api/v1/python_microservice/data/index
+            GET /api/v1/python_microservice/data/:device_id
           </a>
           <br>
           <small>Get device data</small>
@@ -98,45 +98,6 @@
 
 
 
-  <h3>Params</h3>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Param name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr style='background-color:rgb(255,255,255);'>
-    <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-
-    </tbody>
-  </table>
 
 
 
@@ -151,7 +112,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            POST /api/v1/python_microservice/data/update_device_data
+            POST /api/v1/python_microservice/data/update_device_data/:device_id
           </a>
           <br>
           <small>Update device data</small>
@@ -177,33 +138,6 @@
     <tbody>
         <tr style='background-color:rgb(255,255,255);'>
     <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-  <tr style='background-color:rgb(255,255,255);'>
-    <td>
       <strong>temp</strong>
       <br>
       <small>
@@ -218,7 +152,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -245,7 +179,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -272,7 +206,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -299,7 +233,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -327,7 +261,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            GET /api/v1/python_microservice/data/get_device_tasks
+            GET /api/v1/python_microservice/data/get_device_tasks/:device_id
           </a>
           <br>
           <small>Get device tasks</small>
@@ -342,45 +276,6 @@
 
 
 
-  <h3>Params</h3>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Param name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr style='background-color:rgb(255,255,255);'>
-    <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-
-    </tbody>
-  </table>
 
 
 
@@ -395,7 +290,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            GET /api/v1/python_microservice/data/get_device_data_history
+            GET /api/v1/python_microservice/data/get_device_data_history/:device_id
           </a>
           <br>
           <small>Get device data history</small>
@@ -410,45 +305,6 @@
 
 
 
-  <h3>Params</h3>
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>Param name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr style='background-color:rgb(255,255,255);'>
-    <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-
-    </tbody>
-  </table>
 
 
 
@@ -463,7 +319,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            POST /api/v1/python_microservice/data/add_device_task
+            POST /api/v1/python_microservice/data/add_device_task/:device_id
           </a>
           <br>
           <small>Add device task</small>
@@ -489,33 +345,6 @@
     <tbody>
         <tr style='background-color:rgb(255,255,255);'>
     <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-  <tr style='background-color:rgb(255,255,255);'>
-    <td>
       <strong>task_number</strong>
       <br>
       <small>
@@ -530,7 +359,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -557,7 +386,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -585,7 +414,7 @@
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            PUT /api/v1/python_microservice/data/update_device_task
+            PUT /api/v1/python_microservice/data/update_device_task/:device_id
           </a>
           <br>
           <small>Update device task</small>
@@ -611,33 +440,6 @@
     <tbody>
         <tr style='background-color:rgb(255,255,255);'>
     <td>
-      <strong>device_id</strong>
-      <br>
-      <small>
-        required
-        
-      </small>
-    </td>
-    <td>
-      
-<p>Device ID</p>
-
-        <p><strong>Validations:</strong></p>
-        <ul>
-            <li>
-<p>Must be a Integer</p>
-</li>
-        </ul>
-
-      
-
-    </td>
-
-  </tr>
-
-  
-  <tr style='background-color:rgb(255,255,255);'>
-    <td>
       <strong>task_id</strong>
       <br>
       <small>
@@ -652,7 +454,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 
@@ -679,7 +481,7 @@
         <p><strong>Validations:</strong></p>
         <ul>
             <li>
-<p>Must be a String</p>
+<p>Must be a Integer</p>
 </li>
         </ul>
 

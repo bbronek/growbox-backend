@@ -179,7 +179,7 @@
 
       <div>
           <h4>
-              GET /api/v1/python_microservice/data/index
+              GET /api/v1/python_microservice/data/:device_id
             <br>
             <small>Get device data</small>
           </h4>
@@ -188,24 +188,6 @@
       <div>
         
 
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
 
       </div>
       <hr/>
@@ -216,7 +198,7 @@
 
       <div>
           <h4>
-              POST /api/v1/python_microservice/data/update_device_data
+              POST /api/v1/python_microservice/data/update_device_data/:device_id
             <br>
             <small>Update device data</small>
           </h4>
@@ -229,26 +211,12 @@
           <h4>Params</h4>
           <ul>
     <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
       <strong>temp </strong>:
       <small>
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -262,7 +230,7 @@
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -276,7 +244,7 @@
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -290,7 +258,7 @@
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -309,7 +277,7 @@
 
       <div>
           <h4>
-              GET /api/v1/python_microservice/data/get_device_tasks
+              GET /api/v1/python_microservice/data/get_device_tasks/:device_id
             <br>
             <small>Get device tasks</small>
           </h4>
@@ -318,24 +286,6 @@
       <div>
         
 
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
 
       </div>
       <hr/>
@@ -346,7 +296,7 @@
 
       <div>
           <h4>
-              GET /api/v1/python_microservice/data/get_device_data_history
+              GET /api/v1/python_microservice/data/get_device_data_history/:device_id
             <br>
             <small>Get device data history</small>
           </h4>
@@ -355,24 +305,6 @@
       <div>
         
 
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-</ul>
 
       </div>
       <hr/>
@@ -383,7 +315,7 @@
 
       <div>
           <h4>
-              POST /api/v1/python_microservice/data/add_device_task
+              POST /api/v1/python_microservice/data/add_device_task/:device_id
             <br>
             <small>Add device task</small>
           </h4>
@@ -396,26 +328,12 @@
           <h4>Params</h4>
           <ul>
     <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
       <strong>task_number </strong>:
       <small>
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -429,7 +347,7 @@
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -448,7 +366,7 @@
 
       <div>
           <h4>
-              PUT /api/v1/python_microservice/data/update_device_task
+              PUT /api/v1/python_microservice/data/update_device_task/:device_id
             <br>
             <small>Update device task</small>
           </h4>
@@ -461,26 +379,12 @@
           <h4>Params</h4>
           <ul>
     <li>
-      <strong>device_id </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a Integer</p>
- ]
-      </small>
-      
-<p>Device ID</p>
-
-    </li>
-    
-    <li>
       <strong>task_id </strong>:
       <small>
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -494,7 +398,7 @@
         required
         
           [ 
-<p>Must be a String</p>
+<p>Must be a Integer</p>
  ]
       </small>
       
@@ -1981,7 +1885,7 @@
 
       <div>
           <h4>
-              POST /api/v1/auth_code
+              GET /api/v1/auth_code?code=&lt;code&gt;
             <br>
             <small>Authenticate user by code</small>
           </h4>
@@ -1990,24 +1894,6 @@
       <div>
         
 
-
-          <h4>Params</h4>
-          <ul>
-    <li>
-      <strong>code </strong>:
-      <small>
-        required
-        
-          [ 
-<p>Must be a String</p>
- ]
-      </small>
-      
-<p>User code</p>
-
-    </li>
-    
-</ul>
 
       </div>
       <hr/>

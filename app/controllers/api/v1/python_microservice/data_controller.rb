@@ -28,8 +28,7 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/data/index', 'Get device data'
-        param :device_id, Integer, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/:device_id', 'Get device data'
         def index
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -40,12 +39,11 @@ module Api
           render_response(response)
         end
 
-        api :POST, '/v1/python_microservice/data/update_device_data', 'Update device data'
-        param :device_id, Integer, desc: 'Device ID', required: true
-        param :temp, String, desc: 'Temperature', required: true
-        param :soil_hum, String, desc: 'Soil humidity', required: true
-        param :air_hum, String, desc: 'Air humidity', required: true
-        param :light, String, desc: 'Light intensity', required: true
+        api :POST, '/v1/python_microservice/data/update_device_data/:device_id', 'Update device data'
+        param :temp, Integer, desc: 'Temperature', required: true
+        param :soil_hum, Integer, desc: 'Soil humidity', required: true
+        param :air_hum, Integer, desc: 'Air humidity', required: true
+        param :light, Integer, desc: 'Light intensity', required: true
         def update_device_data
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -58,13 +56,14 @@ module Api
             light: params[:light]
           }.to_json
 
+
           headers = { 'Authorization' => "Bearer #{access_token}", 'Content-Type' => 'application/json' }
           response = api_request { make_request(endpoint, headers, :post, body) }
+
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/data/get_device_tasks', 'Get device tasks'
-        param :device_id, Integer, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/get_device_tasks/:device_id', 'Get device tasks'
         def get_device_tasks
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -75,8 +74,7 @@ module Api
           render_response(response)
         end
 
-        api :GET, '/v1/python_microservice/data/get_device_data_history', 'Get device data history'
-        param :device_id, Integer, desc: 'Device ID', required: true
+        api :GET, '/v1/python_microservice/data/get_device_data_history/:device_id', 'Get device data history'
         def get_device_data_history
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -87,10 +85,9 @@ module Api
           render_response(response)
         end
 
-        api :POST, '/v1/python_microservice/data/add_device_task', 'Add device task'
-        param :device_id, Integer, desc: 'Device ID', required: true
-        param :task_number, String, desc: 'Task number', required: true
-        param :status, String, desc: 'Task status', required: true
+        api :POST, '/v1/python_microservice/data/add_device_task/:device_id', 'Add device task'
+        param :task_number, Integer, desc: 'Task number', required: true
+        param :status, Integer, desc: 'Task status', required: true
         def add_device_task
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -103,10 +100,9 @@ module Api
           render_response(response)
         end
 
-        api :PUT, '/v1/python_microservice/data/update_device_task', 'Update device task'
-        param :device_id, Integer, desc: 'Device ID', required: true
-        param :task_id, String, desc: 'Task ID', required: true
-        param :status, String, desc: 'Task status', required: true
+        api :PUT, '/v1/python_microservice/data/update_device_task/:device_id', 'Update device task'
+        param :task_id, Integer, desc: 'Task ID', required: true
+        param :status, Integer, desc: 'Task status', required: true
         def update_device_task
           access_token = obtain_access_token(params[:device_id])
           return render_error('Failed to obtain access token') unless access_token
@@ -173,7 +169,7 @@ module Api
           response = http.request(request)
           { code: response.code.to_i, body: JSON.parse(response.body) }
         rescue StandardError => e
-          { code: 500, body: { error: "Microservice error: #{e.message}", method: method, status_code: response.code.to_i } }
+          { code: 500, body: { error: "Microservice error: #{e.message}", method:, status_code: response.code.to_i } }
         end
 
         def render_response(response)
@@ -185,7 +181,7 @@ module Api
         end
 
         def render_error(message, status = :unprocessable_entity)
-          render json: { error: message, method: params[:action], status_code: status }, status: status
+          render json: { error: message, method: params[:action], status_code: status }, status:
         end
       end
     end

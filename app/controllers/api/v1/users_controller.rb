@@ -18,8 +18,7 @@ module Api
         render json: { code: @current_user.code }
       end
 
-      api :POST, '/v1/auth_code', 'Authenticate user by code'
-      param :code, String, desc: 'User code', required: true
+      api :GET, '/v1/auth_code?code=<code>', 'Authenticate user by code'
       def auth_code
         code = params[:code]
         user = User.find_by(code: code)
