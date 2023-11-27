@@ -26,5 +26,4 @@ group :development, :test do
   gem "httparty"
   gem "active_model_serializers"
   gem "retriable"
-  gem "swagger-docs"
 end

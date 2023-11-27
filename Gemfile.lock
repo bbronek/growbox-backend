@@ -224,9 +224,6 @@ GEM
       language_server-protocol (~> 3.17.0.2)
       rubocop (~> 1.48.1)
       rubocop-performance (~> 1.16.0)
-    swagger-docs (0.2.9)
-      activesupport (>= 3)
-      rails (>= 3)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -261,7 +258,6 @@ DEPENDENCIES
   retriable
   rspec-rails
   standard
-  swagger-docs
   tzinfo-data
 
 RUBY VERSION
