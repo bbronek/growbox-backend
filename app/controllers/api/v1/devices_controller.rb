@@ -1,7 +1,7 @@
 module Api
   module V1
     class DevicesController < BaseController
-      before_action :authenticate_user!
+      before_action :authenticate_user!, except: :create
       before_action :set_device, only: [:destroy, :update, :plants]
 
       api :GET, '/v1/devices', 'Get all devices of the current user'
@@ -51,16 +51,14 @@ module Api
       end
 
       api :POST, '/v1/devices', 'Create a new device'
-      param :code, String, desc: 'User\'s code, required: true'
-      param :device, Hash, desc: 'Device info', required: true do
-        param :name, String, desc: 'Name of the device'
-        param :image, String, desc: 'Image data for the device'
-      end
+      param :code, String, desc: 'User\'s code', required: true
+      param :device_id, Integer, desc: 'Device ID', required: true
+
       def create
         user = User.find_by(code: params[:code])
 
         if user
-          device = Device.new(device_params.merge(user: user))
+          device = Device.new(device_params.merge(id: params[:device_id], user: user))
 
           if device.save
             new_code = generate_random_code
