@@ -38,11 +38,21 @@ module Api
       end
 
       def create
-        device = Device.new(device_params.merge(user_id: @current_user.id))
-        if device.save
-          render json: device, status: :created, serializer: DeviceSerializer
+        user = User.find_by(code: params[:code])
+
+        if user
+          device = Device.new(device_params.merge(user: user))
+
+          if device.save
+            new_code = generate_random_code
+            user.update(code: new_code)
+
+            render json: { device: device, new_code: new_code }, status: :created, serializer: DeviceSerializer
+          else
+            render json: device.errors, status: :unprocessable_entity
+          end
         else
-          render json: device.errors, status: :unprocessable_entity
+          render json: { message: 'Code not found', status: 'Not Found' }, status: :not_found
         end
       end
 
@@ -58,6 +68,11 @@ module Api
 
       def device_params
         params.require(:device).permit(:name, :image)
+      end
+
+      def generate_random_code
+        charset = Array('A'..'Z') + Array('a'..'z') + Array('0'..'9')
+        Array.new(6) { charset.sample }.join
       end
     end
   end
