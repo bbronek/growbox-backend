@@ -15,6 +15,17 @@ module Api
         render json: { code: @current_user.code }
       end
 
+      def auth_code
+        code = params[:code]
+        user = User.find_by(code:)
+
+        if user
+          render json: { message: 'Code exists', status: 'OK' }
+        else
+          render json: { message: 'Code not found', status: 'Not Found' }, status: :not_found
+        end
+      end
+
       def create
         user = User.new(user_params)
         user.code = generate_random_code

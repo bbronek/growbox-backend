@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         get 'show_code', on: :member
       end
 
+      get 'auth_code', to: 'users#auth_code'
+
       post "login", to: "authentication#login"
       delete "logout", to: "authentication#logout"
 
