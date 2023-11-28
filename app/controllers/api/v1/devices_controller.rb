@@ -53,18 +53,17 @@ module Api
       api :POST, '/v1/devices', 'Create a new device'
       param :code, String, desc: 'User\'s code', required: true
       param :device_id, Integer, desc: 'Device ID', required: true
-
       def create
         user = User.find_by(code: params[:code])
 
         if user
-          device = Device.new(device_params.merge(id: params[:device_id], user: user))
+          device = Device.new(id: params[:device_id], user: user)
 
           if device.save
             new_code = generate_random_code
             user.update(code: new_code)
 
-            render json: { device: device, new_code: new_code }, status: :created, serializer: DeviceSerializer
+            render json: { device: device }, status: :created
           else
             render json: device.errors, status: :unprocessable_entity
           end
