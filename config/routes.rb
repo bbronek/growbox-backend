@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       namespace :python_microservice do
         resources :data, only: [] do
           collection do
+            get '/:device_id', to: 'data#index'
             get 'get_devices', to: 'data#get_devices'
             post 'update_device_data/:device_id', to: 'data#update_device_data'
             get 'get_device_tasks/:device_id', to: 'data#get_device_tasks'
