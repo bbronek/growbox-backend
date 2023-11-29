@@ -14,7 +14,7 @@ module Api
         RETRY_INTERVAL = 2
         REQUEST_TIMEOUT = 10
 
-        api :GET, '/v1/python_microservice/data/get_devices', 'Get devices with caching'
+        api :GET, '/v1/python_microservice/data/get_devices', 'Get devices'
         def get_devices
           cached_response = Rails.cache.read('devices_cache')
 
