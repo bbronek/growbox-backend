@@ -61,7 +61,7 @@ module Api
 
           if device.save
             new_code = generate_random_code
-            user.update(code: new_code)
+            user.update_attribute(:code, new_code)
 
             render json: { device: device }, status: :created
           else
