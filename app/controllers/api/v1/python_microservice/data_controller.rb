@@ -141,6 +141,20 @@ module Api
           render_response(response)
         end
 
+        api :POST, '/v1/python_microservice/data/schedule_device_task', 'Schedule device task'
+        param :device_id, String, desc: 'Device ID', required: true
+        param :task_number, Integer, desc: 'Task number', required: true
+        param :status, Integer, desc: 'Task status', required: true
+        def schedule_device_task
+          device_id = params[:device_id]
+          task_number = params[:task_number]
+          status = params[:status]
+
+          DeviceTaskJob.perform_async(device_id, task_number, status)
+
+          render json: { message: 'Device task scheduled successfully' }
+        end
+
         private
 
         def api_request(&block)

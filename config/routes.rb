@@ -40,6 +40,7 @@ Rails.application.routes.draw do
             post 'add_device', to: 'data#add_device'
             get 'get_data', to: 'data#get_data'
             get 'get_tasks', to: 'data#get_tasks'
+            post 'schedule_device_task', to: 'data#schedule_device_task'
           end
         end
       end
