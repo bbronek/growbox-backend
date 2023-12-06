@@ -15,6 +15,7 @@
       <li><a href='#data-add_device'>add_device</a></li>
       <li><a href='#data-get_data'>get_data</a></li>
       <li><a href='#data-get_tasks'>get_tasks</a></li>
+      <li><a href='#data-schedule_device_task'>schedule_device_task</a></li>
   </ul>
   <h4><a href='#device_logs'>Device_logs</a></h4>
   <ul>
@@ -162,7 +163,7 @@
           <h4>
               GET /api/v1/python_microservice/data/get_devices
             <br>
-            <small>Get devices with caching</small>
+            <small>Get devices</small>
           </h4>
       </div>
 
@@ -496,6 +497,71 @@
       <div>
         
 
+
+      </div>
+      <hr/>
+
+      <h3 id="data-schedule_device_task">
+      <a href='#data'>Data</a> / <a href='#data-schedule_device_task'>schedule_device_task</a>
+      </h3>
+
+      <div>
+          <h4>
+              POST /api/v1/python_microservice/data/schedule_device_task
+            <br>
+            <small>Schedule device task</small>
+          </h4>
+      </div>
+
+      <div>
+        
+
+
+          <h4>Params</h4>
+          <ul>
+    <li>
+      <strong>device_id </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a String</p>
+ ]
+      </small>
+      
+<p>Device ID</p>
+
+    </li>
+    
+    <li>
+      <strong>task_number </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Task number</p>
+
+    </li>
+    
+    <li>
+      <strong>status </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Task status</p>
+
+    </li>
+    
+</ul>
 
       </div>
   </div>
