@@ -27,5 +27,6 @@ group :development, :test do
   gem "active_model_serializers"
   gem "retriable"
   gem 'apipie-rails'
+  gem "sidekiq"
 end
 
