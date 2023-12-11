@@ -28,5 +28,6 @@ group :development, :test do
   gem "retriable"
   gem 'apipie-rails'
   gem "sidekiq"
+  gem "redis"
 end
 
