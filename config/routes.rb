@@ -40,7 +40,7 @@ Rails.application.routes.draw do
             put 'update_device_task/:device_id', to: 'data#update_device_task'
             post 'add_device', to: 'data#add_device'
             get 'get_data', to: 'data#get_data'
-            post 'schedule_device_task', to: 'data#schedule_device_task'
+            post 'add_scheduled_device_task', to: 'data#add_scheduled_device_task'
           end
         end
       end
