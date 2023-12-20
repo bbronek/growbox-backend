@@ -145,23 +145,28 @@ module Api
         param :device_id, String, desc: 'Device ID', required: true
         param :task_number, Integer, desc: 'Task number', required: true
         param :status, Integer, desc: 'Task status', required: true
+        param :time_in_seconds, Integer, desc: 'Time in seconds to schedule the task', required: true
+
         def add_scheduled_device_task
           device_id = params[:device_id]
           task_number = params[:task_number]
           status = params[:status]
           time_in_seconds = params[:time_in_seconds].to_i
-          repeat = params[:repeat] == 'true'
 
-          if repeat
-            DeviceTaskJob.perform_in(time_in_seconds, device_id, task_number, status, repeat)
-          else
-            DeviceTaskJob.perform_at(Time.now + time_in_seconds, device_id, task_number, status, repeat)
-          end
+          DeviceTaskJob.perform_in(time_in_seconds, device_id, task_number, status, repeat)
 
           render json: { message: 'Device task scheduled successfully' }
         end
 
         private
+
+        def retrieve_all_devices_ids
+          Device.pluck(:id)
+        end
+
+        def redis
+          @redis ||= Redis.new
+        end
 
         def api_request(&block)
           Retriable.retriable(on: [StandardError], tries: MAX_RETRIES, base_interval: RETRY_INTERVAL) do
