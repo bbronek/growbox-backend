@@ -153,7 +153,7 @@ module Api
           status = params[:status]
           time_in_seconds = params[:time_in_seconds].to_i
 
-          DeviceTaskJob.perform_in(time_in_seconds, device_id, task_number, status, repeat)
+          DeviceTaskJob.perform_in(time_in_seconds, device_id, task_number, status)
 
           render json: { message: 'Device task scheduled successfully' }
         end
