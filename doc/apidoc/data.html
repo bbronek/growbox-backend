@@ -654,15 +654,15 @@
     </div>
     <hr>
     <div class='pull-right small'>
-      <a href='../apidoc/data/schedule_device_task.html'> >>> </a>
+      <a href='../apidoc/data/add_scheduled_device_task.html'> >>> </a>
     </div>
     <div>
         <h2>
-          <a href='#description-schedule_device_task'
+          <a href='#description-add_scheduled_device_task'
            class='accordion-toggle'
            data-toggle='collapse'
            data-parent='#accordion'>
-            POST /api/v1/python_microservice/data/schedule_device_task
+            POST /api/v1/python_microservice/data/add_scheduled_device_task
           </a>
           <br>
           <small>Schedule device task</small>
@@ -670,7 +670,7 @@
     </div>
 
 
-    <div id='description-schedule_device_task' class='collapse accordion-body'>
+    <div id='description-add_scheduled_device_task' class='collapse accordion-body'>
       
 
 
@@ -752,6 +752,33 @@
     <td>
       
 <p>Task status</p>
+
+        <p><strong>Validations:</strong></p>
+        <ul>
+            <li>
+<p>Must be a Integer</p>
+</li>
+        </ul>
+
+      
+
+    </td>
+
+  </tr>
+
+  
+  <tr style='background-color:rgb(255,255,255);'>
+    <td>
+      <strong>time_in_seconds</strong>
+      <br>
+      <small>
+        required
+        
+      </small>
+    </td>
+    <td>
+      
+<p>Time in seconds to schedule the task</p>
 
         <p><strong>Validations:</strong></p>
         <ul>

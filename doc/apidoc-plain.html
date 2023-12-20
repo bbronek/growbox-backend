@@ -15,7 +15,7 @@
       <li><a href='#data-add_device'>add_device</a></li>
       <li><a href='#data-get_data'>get_data</a></li>
       <li><a href='#data-get_tasks'>get_tasks</a></li>
-      <li><a href='#data-schedule_device_task'>schedule_device_task</a></li>
+      <li><a href='#data-add_scheduled_device_task'>add_scheduled_device_task</a></li>
   </ul>
   <h4><a href='#device_logs'>Device_logs</a></h4>
   <ul>
@@ -501,13 +501,13 @@
       </div>
       <hr/>
 
-      <h3 id="data-schedule_device_task">
-      <a href='#data'>Data</a> / <a href='#data-schedule_device_task'>schedule_device_task</a>
+      <h3 id="data-add_scheduled_device_task">
+      <a href='#data'>Data</a> / <a href='#data-add_scheduled_device_task'>add_scheduled_device_task</a>
       </h3>
 
       <div>
           <h4>
-              POST /api/v1/python_microservice/data/schedule_device_task
+              POST /api/v1/python_microservice/data/add_scheduled_device_task
             <br>
             <small>Schedule device task</small>
           </h4>
@@ -558,6 +558,20 @@
       </small>
       
 <p>Task status</p>
+
+    </li>
+    
+    <li>
+      <strong>time_in_seconds </strong>:
+      <small>
+        required
+        
+          [ 
+<p>Must be a Integer</p>
+ ]
+      </small>
+      
+<p>Time in seconds to schedule the task</p>
 
     </li>
     
