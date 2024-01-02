@@ -4,6 +4,8 @@ module Api
       before_action :authenticate_user!, except: :create
       before_action :set_device, only: [:destroy, :update, :plants]
 
+      include TokenProvider
+
       api :GET, '/v1/devices', 'Get all devices of the current user'
       def index
         devices = @current_user.devices
@@ -20,8 +22,30 @@ module Api
       api :DELETE, '/v1/devices/:id', 'Delete a device'
       param :id, Integer, desc: 'ID of the device to be deleted', required: true
       def destroy
-        @device.destroy
-        render json: { message: 'Device successfully deleted.' }, status: :ok
+        uuid = @device.uuid
+
+        access_token = obtain_access_token(uuid)
+
+        if access_token
+          delete_device_url = URI.parse('https://python-microservice-api.greenmind.site/delete_device')
+
+          http = Net::HTTP.new(delete_device_url.host, delete_device_url.port)
+          http.use_ssl = true
+
+          request = Net::HTTP::Delete.new(delete_device_url.path, { 'Content-Type' => 'application/json' })
+          request['Authorization'] = "Bearer #{access_token}"
+
+          response = http.request(request)
+
+          if response.code.to_i == 200
+            @device.destroy
+            render json: { message: 'Device successfully deleted and removed from the external service.' }, status: :ok
+          else
+            render json: { error: 'Error while destroying device on the external service.' }, status: :unprocessable_entity
+          end
+        else
+          render json: { error: 'Unable to obtain access token. Device deletion aborted.' }, status: :unprocessable_entity
+        end
       end
 
       api :POST, '/v1/devices/assign', 'Assign a device to the current user'
@@ -62,11 +86,11 @@ module Api
           if device.save
             new_code = generate_random_code
             user.update_attribute(:code, new_code)
-
             render json: { device: device }, status: :created
           else
             render json: device.errors, status: :unprocessable_entity
           end
+
         else
           render json: { message: 'Code not found', status: 'Not Found' }, status: :not_found
         end
