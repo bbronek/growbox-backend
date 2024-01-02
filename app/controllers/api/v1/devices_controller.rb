@@ -57,7 +57,7 @@ module Api
         user = User.find_by(code: params[:code])
 
         if user
-          device = Device.new(id: params[:device_id], user: user)
+          device = Device.new(uuid: params[:uuid], user: user)
 
           if device.save
             new_code = generate_random_code
